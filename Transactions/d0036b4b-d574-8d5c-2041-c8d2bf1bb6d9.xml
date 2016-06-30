@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir fhir-all-xsd/bundle.xsd"
+ xmlns="http://hl7.org/fhir">
+    <meta>
+        <profile value="http://mais.org.ar/fhir/ImplementationGuide/TransaccionFacturacionMais"/>
+    </meta>
+    <type value="transaction"> </type>
+    <entry>
+        <resource>
+            <Organization>
+                <id value="F87E4DC7-BEFA-45D1-B336-09BE61B1AA3E"/>
+                <identifier>
+                    <value value="2.16.840.1.113883.2.10.24.2.1.1"/>
+                </identifier>
+            </Organization>
+        </resource>
+        <request>
+            <method value="POST"/>
+            <url value="Organization"/>
+        </request>
+    </entry>
+    <entry>
+        <resource>
+            <Organization>
+                <id value="C81696FE-2B56-4F77-BCED-440A727D2869"/>
+                <identifier>
+                    <value value="2.16.840.1.113883.2.10.24.2.2.5"/>
+                </identifier>
+            </Organization>
+        </resource>
+        <request>
+            <method value="POST"/>
+            <url value="Organization"/>
+        </request>
+    </entry>
+    <entry>
+        <resource>
+            <Claim>
+                <contained>
+                    <Patient>
+                        <id value="Pat20425239"/>
+                        <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/SituacionIVAPaciente">
+                            <valueCoding>
+                                <system value="http://mais.org.ar/fhir/ValueSet/TipoIVAPaciente"/>
+                                <code value="O"/>
+	                                <display value="OBLIGATORIO"/>
+                            </valueCoding>
+                        </modifierExtension>
+                        <identifier>
+                            <system value="www.prepaga.com/afiliados"/>
+                            <value value="NRO_AFILIADO"/>
+                        </identifier>
+                        <identifier id="DNI">
+                            <system value="www.renar.gov.ar/documentos"/>
+                            <value value="11222333"/>
+                        </identifier>
+                        <name>
+                            <family value="APELLIDO"/>
+                            <given value="NOMBRE"/>
+                        </name>
+                    </Patient>
+                </contained>
+                <contained>
+                    <Practitioner>
+                        <id value="Pro101"/>
+                        <identifier>
+                            <system value="www.mais.org/matnac"/>
+                            <value value="30181"/>
+                            <assigner>
+                                <display value="N"/>
+                            </assigner>
+                        </identifier>
+                        <identifier>
+                            <system value="www.mais.org/cuit"/>
+                            <value value="2022290221"/>
+                        </identifier>
+                        <name>
+                            <family value="GUTIERREZ"/>
+                            <given value="MARIELA"/>
+                        </name>
+                        <practitionerRole>
+                            <role>
+                                <coding>
+                                    <system value="http://mais.org.ar/fhir/ValueSet/TipoProfesional"/>
+                                    <code value="M"/>
+                                    <display value="MEDICO"/>
+                                </coding>
+                            </role>
+                        </practitionerRole>
+                    </Practitioner>
+                </contained>
+                <contained>
+                    <Practitioner>
+                        <id value="Pro102"/>
+                        <identifier>
+                            <system value="www.mais.org/matnac"/>
+                            <value value="20912"/>
+                            <assigner>
+                                <display value="B"/>
+                            </assigner>
+                        </identifier>
+                        <identifier>
+                            <system value="www.mais.org/cuit"/>
+                            <value value="3039290221"/>
+                        </identifier>
+                        <name>
+                            <family value="SOTELO"/>
+                            <given value="SANTIAGO"/>
+                        </name>
+                        <practitionerRole>
+                            <role>
+                                <coding>
+                                    <system value="http://mais.org.ar/fhir/ValueSet/TipoProfesional"/>
+                                    <code value="M"/>
+                                    <display value="MEDICO"/>
+                                </coding>
+                            </role>
+                        </practitionerRole>
+                    </Practitioner>
+                </contained>
+                <contained>
+                    <ClaimResponse>
+                        <identifier>
+                            <system value="OID_FINANCIADOR/TRANSACCIONES"/>
+                        <value value="2.16.840.1.113883.2.10.24.2.2.5"/>
+                        </identifier>
+                    </ClaimResponse>
+                </contained>
+                <contained>
+                    <Encounter>
+                        <id value="C81696FE-2B56-4F77-BCED-440A727D2869"/>
+                        <identifier>
+                            <system value="OID_PRESTADOR\episodios"/>
+                            <value value="H00838200"/>
+                        </identifier>
+                        <status value="finished"/>
+                        <class value="inpatient"> </class>
+                        <patient>
+                            <reference value="#Pat20425239"/>
+                        </patient>
+                        <period>
+                            <start value="2015-03-10T10:30:00"/>
+                            <end value="2015-03-12T09:00:00"/>
+                        </period>
+                        <length>
+                            <value value="180"/>
+                            <code value="min"/>
+                        </length>
+                    </Encounter>
+                </contained>
+                <contained>
+                    <DocumentReference>
+                        <masterIdentifier>
+                            <system value="OID_DOCUMENTOS_PRESTADOR"/>
+                            <value value="ID_UNICO_DOCUMENTO"/>
+                        </masterIdentifier>
+                        <subject>
+                            <reference value="#Pat20425239"/>
+                        </subject>
+                        <type>
+                            <coding>
+                                <system value="http://mais.org.ar/fhir/ValueSet/TipoDocumentoAdj"/>
+                                <code value="30212-2"/>
+                                <display value="INFORME DE ALTA"/>
+                            </coding>
+                        </type>
+                        <author>
+                            <reference value="ORGANIZATION_ID"/>
+                        </author>
+                        <indexed value="2015-03-30T00:00:00"/>
+                        <status value="current"/>
+                        <content>
+                            <attachment>
+                                <contentType value="xml/CDA"/>
+                                <url value="www.prestador.com/cdas/302029"/>
+                            </attachment>
+                        </content>
+                    </DocumentReference>
+                </contained>
+                <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/Reliquidacion">
+                    <valueBoolean value="true"/>
+                </modifierExtension>
+                <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ReliquidacionNumeroFactura">
+                    <valueIdentifier>
+                    <system value="OID_PRESTADOR\nros_factura"/>
+                    <value value="B 0000-00000022"/>
+                </valueIdentifier>
+                </modifierExtension>
+                <type value="institutional"/>
+                <identifier>
+                <system value="OID_PRESTADOR\items_factura"/>
+                    <value value="20910-2"/>
+                </identifier>
+                <identifier>
+                    <system value="OID_PRESTADOR\nros_factura"/>
+                    <value value="B 0001-00000090"/>
+                </identifier>
+                <created value="2015-09-01"/>
+                <provider>
+                    <reference value="#Pro101"/>
+                </provider>
+                <organization>
+                    <reference value="Organization/F87E4DC7-BEFA-45D1-B336-09BE61B1AA3E"/>
+                </organization>
+                <priority>
+                    <system value="http://hl7.org/fhir/processpriority"/>
+                    <code value="Normal"/>
+                </priority>
+                <referral>
+                    <reference value="#Pro102"/>
+                </referral>
+                <diagnosis>
+                <sequence value="1"/>
+                    <diagnosis>
+                        <system value="http://hl7.org/fhir/sid/icd-10"/>
+                        <code value="E11"/>
+                        <display value="DIABETES MELLITUS TIPO 2"/>
+                    </diagnosis>
+                </diagnosis>
+                <patient>
+                    <reference value="#Pat20425239"/>
+                </patient>
+                <coverage>
+                    <sequence value="1"/>
+                    <focal value="true"/>
+                    <coverage>
+                        <reference value="Organization\C81696FE-2B56-4F77-BCED-440A727D2869"/>
+                    </coverage>
+                    <relationship>
+                        <system value="http://mais.org.ar/fhir/ValueSet/RelacionBenef"/>
+                        <code value="T"/>
+                        <display value="TITULAR"/>
+                    </relationship>
+                    <preAuthRef value="12022 20911102 2"/>
+                    <originalRuleset>
+                        <system value="http://mais.org.ar/fhir/ValueSet/NormasFacturacion"/>
+                        <code value="NN"/>
+                        <display value="NORMAS NOMENCLADOR NACIONAL"/>
+                    </originalRuleset>
+                </coverage>
+                <item>
+                    <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ValorHonorarios">
+                        <valueDecimal value="12.33"/>
+                    </modifierExtension>
+                    <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ValorGastos">
+                        <valueDecimal value="30.25"/>
+                    </modifierExtension>
+                    <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ImporteExento">
+                        <valueDecimal value="32.58"/>
+                    </modifierExtension>
+                    <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ImporteExento">
+                        <valueDecimal value="0.00"/>
+                    </modifierExtension>
+                    <sequence value="1"/>
+                    <type>
+                        <system value="www.prestador.com/fhir/ValueSet/prestaciones"/>
+                        <code value="475"/>
+                        <display value="HEMOGRAMA"/>
+                    </type>
+                    <service>
+                        <system value="www.financiador.com/fhir/ValueSet/prestaciones"/>
+                        <code value="475"/>
+                        <display value="HEMOGRAMA"/>
+                    </service>
+                    <serviceDate value="2015-02-20"> </serviceDate>
+                    <quantity>
+                        <value value="1"/>
+                    </quantity>
+                    <net>
+                        <value value="12.35"/>
+                        <unit value="ARS"/>
+                    </net>
+                    <detail>
+                        <sequence value="1"/>
+                        <type>
+                            <system value="http://mais.org.ar/fhir/StructureDefinition/TipoArancelCodigo"> </system>
+                            <code value="ANESTESISTA"/>
+                            <display value="ANESTESISTA"></display>
+                        </type>
+                        <service>
+                            <system value="www.mais.org.ar/coding/difservicio"> </system>
+                            <code value="UG"/>
+                            <display value="UG"/>
+                        </service>
+                        <quantity>
+                            <value value="1"/>
+                        </quantity>
+                        <net>
+                            <value value="12.35"/>
+                            <unit value="ARS"/>
+                        </net>
+                    </detail>
+                </item>
+            </Claim>
+        </resource>
+        <request>
+            <method value="POST"/>
+            <url value="Claim"/>
+        </request>
+    </entry>
+</Bundle>

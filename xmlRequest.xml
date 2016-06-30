@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bundle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://hl7.org/fhir fhir-all-xsd/bundle.xsd"
+ xmlns="http://hl7.org/fhir">
+  <meta>
+    <profile value="http://mais.org.ar/fhir/ImplementationGuide/TransaccionFacturacionMais"/>
+  </meta>
+  <type value="transaction"/>
+
+  <entry>
+    <fullUrl value="http://mais.org.ar/fhir/ImplementationGuide/TransaccionFacturacionMais/1"/>
+    <resource>
+      
+      
+      <Organization>
+        <id value="33561330609"/>
+        <identifier>
+          <value value="2.16.840.1.113883.2.10.24.2.1.4"/>
+        </identifier>
+      </Organization>
+  
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="Organization?identifier=2.16.840.1.113883.2.10.24.2.1.4"/>
+    </request>
+  </entry>
+  <entry>
+    <fullUrl value="http://mais.org.ar/fhir/ImplementationGuide/TransaccionFacturacionMais/2"/>
+    <resource>
+      
+      
+      <Organization>
+        <id value="151"/>
+        <identifier>
+          <value value="2.16.840.1.113883.2.10.24.2.2.6"/>
+        </identifier>
+      </Organization>
+  
+    </resource>
+    <request>
+      <method value="PUT"/>
+      <url value="Organization?identifier=2.16.840.1.113883.2.10.24.2.2.6"/>
+    </request>
+  </entry>
+<entry>
+    <fullUrl value="http://mais.org.ar/fhir/ImplementationGuide/TransaccionFacturacionMais/3"/>
+    <resource>
+      
+      
+        <Claim>
+                <contained>
+                    <Patient>
+                        <!-- Identificador interno dentro de la transaccion -->
+                        <id value="183392"/>
+                        <!-- Tipo de Iva del Paciente, no existe en FHIR, se agrega como extension documentada-->
+                        <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/SituacionIVAPaciente">
+                            <valueCoding>
+                                <system value="http://mais.org.ar/fhir/ValueSet/TipoIVAPaciente"/>
+                                <code value="O"/>
+                                <display value="Obligatorio"/>
+                            </valueCoding>
+                        </modifierExtension>
+
+                        <!--VER Requerido: Identificacion identifier - OID_del_financiador_afiliados -->
+                        <identifier>
+                            <!-- VER ACA PONER OID-->
+                            <system value="2.16.840.1.113883.2.10.24.2.2.6.7"/>
+                            <value value="60834265202"/>
+                        </identifier>
+
+                        <identifier id="DNI">
+                            <!-- VER ACA PONER OID-->
+                            <system value="2.16.840.1.113883.2.10.24.4.1"/>
+                            <value value="16844615"/>
+                        </identifier>
+
+                        <name>
+                            <family value="ABADI"/>
+                            <given value="MARIA ALEJANDRA"/>
+                        </name>
+                    </Patient>
+                </contained>
+                <!-- Profesional Prescriptor -->
+                <contained>
+                    <!-- Datos del Profesional Prescriptor -->
+                    <Practitioner>
+                        <id value=""/>
+                        <!-- Tipo y Numero de Matricula nac -->
+                        <identifier>
+                            <!-- Nacional o Provincial -->
+                            <!-- VER ACA PONER OID-->
+                            <system value="www.mais.org/matnac"/>
+                            <!-- Numero de Matricula -->
+                            <value value=""/>
+                            <!-- Letra de la Matricula -->
+                            <assigner>
+                                <display value=""/>
+                            </assigner>
+                        </identifier>
+                        <!-- CUIT -->
+                        <identifier>
+                            <system value="www.mais.org/cuit"/>
+                            <!-- Numero de CUIT -->
+                            <value value=""/>
+                        </identifier>
+                        <name>
+                            <family value=""/>
+                            <given value=""/>
+                        </name>
+
+                        <!-- Tipo de Profesion del Solicitante -->
+                        <practitionerRole>
+                            <role>
+                                <coding>
+                                    <system value="http://mais.org.ar/fhir/ValueSet/TipoProfesional"/>
+                                    <code value="M"/>
+                                    <display value="MEDICO"/>
+                                </coding>
+                            </role>
+                        </practitionerRole>
+                                              <practitionerRole>
+                      <!-- Requerido: Para diferenciar prescriptor de efector -->
+                            <role>
+                                <coding>
+                                <!-- Requerido: Identificacion identifier -->
+                                    <!-- VER ACA PONER OID-->
+                                <system value="www.mais.org/participacion" />
+
+                                <!-- Requerido: Codigo tipo profecional -->
+                                <code value="P"/>
+
+                                <!-- Opcional: Descripcion -->
+                                <display value="PRESCRIPTOR"/>
+                                </coding>
+                            </role>
+                        </practitionerRole>
+
+                    </Practitioner>
+                </contained>
+                <contained>
+                    <!-- Datos del Profesional Efector -->
+                    <Practitioner>
+                        <id value="171"/>
+                        <!-- Tipo y Numero de Matricula nac -->
+                        <identifier>
+                            <!-- Nacional o Provincial -->
+                            <!-- VER ACA PONER OID-->
+                            <system value="www.mais.org/matnac"/>
+                            <!-- Numero de Matricula -->
+                            <value value="80805"/>
+                            <!-- Letra de la Matricula -->
+                            <assigner>
+                                <display value="N"/>
+                            </assigner>
+                        </identifier>
+                        <!-- CUIT -->
+                        <identifier>
+                            <system value="www.mais.org/cuit"/>
+                            <!-- Numero de CUIT -->
+                            <value value=""/>
+                        </identifier>
+                        <!-- Tipo de Profesion del Efector -->
+                        <practitionerRole>
+                            <role>
+                                <coding>
+                                    <system value="http://mais.org.ar/fhir/ValueSet/TipoProfesional"/>
+                                    <code value="M"/>
+                                    <display value="MEDICO"/>
+                                </coding>
+                            </role>
+                        </practitionerRole>
+                                              <practitionerRole>
+
+                      <!-- Requerido: Para diferenciar prescriptor de efector -->
+                            <role>
+                                <coding>
+                                <!-- Requerido: Identificacion identifier -->
+                                <system value="www.mais.org/participacion" />
+
+                                <!-- Requerido: Codigo tipo profecional -->
+                                <code value="E"/>
+
+                                <!-- Opcional: Descripcion -->
+                                <display value="EFECTOR"/>
+                                </coding>
+                            </role>
+                        </practitionerRole>
+
+                    </Practitioner>
+                </contained>
+                <!-- Autorizacion recibida -->
+                <contained>
+                    <ClaimResponse>
+                        <!-- NRO. DE TRANSACCION PFM 37 -->
+                        <identifier>
+                            <system value="2.16.840.1.113883.2.10.24.2.1.6"/>
+                            <value value="92648"/>
+                        </identifier>
+                    </ClaimResponse>
+                </contained>
+                <!-- Encuentro -->
+                <contained>
+                    <Encounter>
+                        <id value="066e1b1e-7b45-4b2a-bbe2-c7f2fc000184"/>
+                        <!-- Numero de episodio del Prestador -->
+                        <identifier>
+                            <system value="OID_PRESTADOR\episodios"/>
+                            <value value="A2762680"/>
+
+                        </identifier>
+                        <status value="finished"/>
+                        <!-- Tipo y Clase de Episodio, no esta en el excel -->
+                        <!-- Ambulatorio, internado, etc. -->
+                        <class value="inpatient"> </class>
+                        <!-- Referencia al Paciente -->
+                        <patient>
+                            <reference value="183392"/>
+                        </patient>
+                        <!-- Fecha de Comienzo y Fin de Internacion o Encuentro -->
+                        <period>
+                            <start value="2015-03-10T10:30:00"/>
+                            <end value="2015-03-12T09:00:00"/>
+                        </period>
+                        <!-- Hora y minutos de consumo -->
+                        <length>
+                            <value value="180"/>
+                            <code value="min"/>
+                        </length>
+
+                    </Encounter>
+                </contained>
+                <!-- Documento adjunto -->
+                <contained>
+                    <DocumentReference>
+                        <!-- Identificador del documento -->
+                        <masterIdentifier>
+                            <system value="OID_DOCUMENTOS_PRESTADOR"/>
+                            <value value="ID_UNICO_DOCUMENTO"/>
+                        </masterIdentifier>
+                        <!-- Datos del paciente -->
+                        <subject>
+                            <reference value="183392"/>
+                        </subject>
+                        <!-- Tipo de Documento Adjunto -->
+                        <type>
+                            <coding>
+                                <system value="http://mais.org.ar/fhir/ValueSet/TipoDocumentoAdj"/>
+                                <code value="30212-2"/>
+                                <display value="INFORME DE ALTA"/>
+                            </coding>
+                        </type>
+                        <author>
+                            <reference value="ORGANIZATION_ID"/>
+                        </author>
+                        <!-- Fecha Creacion del Documento -->
+                        <indexed value="2015-03-30T10:30:00"/>
+                        <!-- Estado del documento -->
+                        <status value="current"/>
+                        <!-- Tipo de Documento MIME y ubicacion del documento -->
+                        <content>
+
+                            <attachment>
+                                <contentType value="xml/CDA"/>
+                                <url value="www.prestador.com/cdas/302029"/>
+                            </attachment>
+
+                        </content>
+
+                    </DocumentReference>
+                </contained>
+                <!-- Declaracion de Reliquidacion true/false -->
+                <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/Reliquidacion">
+                    <valueBoolean value="false"/>
+                </modifierExtension>
+                <!-- En caso de reliquidacion, numero de factura de referencia -->
+                <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ReliquidacionNumeroFactura">
+                    <!-- Tipo y Numero de Factura -->
+                    <valueIdentifier>
+                        <system value="2.16.840.1.113883.2.10.24.2.1.6\nros_factura"/>
+                        <value value="A 0016 00017695"/>
+                    </valueIdentifier>
+                </modifierExtension>
+                <!-- Tipo de Elemento institutional (usualmente internacion)
+                    / oral (odontologia) / professional (atencion ambulatoria) /
+                    / pharmacy (farmacia) / vision (oftalmologia)
+                -->
+                <type value="institutional"/>
+                <!-- Identificador unico del Renglon para el Prestador  PFM.58 -->
+                <identifier>
+                    <system value="2.16.840.1.113883.2.10.24.2.1.4\items_factura"/>
+                    <value value="066e1b1e-7b45-4b2a-bbe2-c7f2fc000184"/>
+                </identifier>
+                <!-- Tipo y Numero de Factura -->
+                <identifier>
+                    <system value="2.16.840.1.113883.2.10.24.2.1.6\nros_factura"/>
+                    <value value="A 0016 00017695"/>
+                </identifier>
+                <!-- Fecha de Liquidacion  -->
+                <created value="2016-01-31"/>
+                <!-- Referencia al Profesional Efector -->
+                <provider>
+                    <reference value="171"/>
+                </provider>
+                <!-- Referencia al Prestador  PFM.01-->
+                <organization>
+                    <reference value="Organization/F87E4DC7-BEFA-45D1-B336-09BE61B1AA3E"/>
+                </organization>
+                <!-- Referencia a la urgencia normal/stat -->
+                <priority>
+                    <system value="http://hl7.org/fhir/processpriority"/>
+                    <code value="normal"/>
+                </priority>
+                <!-- Referencia al Profesional Solicitante -->
+                <referral>
+                    <reference value=""/>
+                </referral>
+
+                <!-- Para cada diagnostico, codigo ICD10 PFM.56 -->
+                <diagnosis>
+                    <sequence value="1"/>
+                    <diagnosis>
+                        <system value="http://hl7.org/fhir/sid/icd-10"/>
+                        <code value="E11"/>
+                        <display value="DIABETES MELLITUS TIPO 2"/>
+                    </diagnosis>
+                </diagnosis>
+                <patient>
+                    <reference value="183392"/>
+                </patient>
+                <!-- Referencia a la Autorizacion  -->
+                <coverage>
+                    <sequence value="1"/>
+                    <focal value="true"/>
+                    <!-- Relacion del Titular con el Beneficiario -->
+
+                    <coverage>
+                        <reference value="OSDE 310"/>
+                    </coverage>
+
+                    <relationship>
+                        <system value="http://mais.org.ar/fhir/ValueSet/RelacionBenef"/>
+                        <code value="T"/>
+                        <display value="TITULAR"/>
+                    </relationship>
+                    <!-- Numero de Orden PFM. 10/11/12-->
+                    <preAuthRef value="     "/>
+                    <!-- Normas de Facturacion -->
+                    <originalRuleset>
+                        <system value="http://mais.org.ar/fhir/ValueSet/NormasFacturacion"/>
+                        <code value="NN"/>
+                        <display value="NORMAS NOMENCLADOR NACIONAL"/>
+                    </originalRuleset>
+                </coverage>
+                <item>
+
+                    <!-- Valor - Unidades Gastos -->
+                    <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ValorHonorarios">
+                        <valueDecimal value="12.33"/>
+                    </modifierExtension>
+                    <!-- Valor - Unidades Honorarios -->
+                    <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ValorGastos">
+                        <valueDecimal value="30.25"/>
+                    </modifierExtension>
+                    <!-- Valor - Importe Gravado -->
+                    <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ImporteExento">
+                        <valueDecimal value="32.58"/>
+                    </modifierExtension>
+                    <!-- Valor - Importe Exento -->
+                    <modifierExtension url="http://mais.org.ar/fhir/StructureDefinition/ImporteExento">
+                        <valueDecimal value="0.00"/>
+                    </modifierExtension>
+
+                    <sequence value="1"/>
+                    <!-- Codigo de Prestacion (Prestador) PFM.04 -->
+
+                    <type>
+                        <system value="2.16.840.1.113883.2.10.24.2.2.6.12"/>
+                        <code value="420101"/>
+                        <display value="CONSULTA MEDICA"/>
+                    </type>
+                    <!-- Codigo de Prestacion (Homologado) PFM.05  -->
+                    <service>
+                        <!-- Ver OID Entidad  -->
+                        <system value="2.16.840.1.113883.2.10.24.2.2.6.12"/>
+                        <code value="420101"/>
+                        <display value="CONSULTA MEDICA"/>
+
+                    </service>
+                    <!-- Fecha de la Prestacion -->
+                    <serviceDate value="2016-01-06"> </serviceDate>
+                    <!-- Cantidad Provista del Servicio PFM.06 -->
+                    <quantity>
+                        <value value="1.00"/>
+                    </quantity>
+
+                    <!-- Importe de la prestacion PFM.13+14+15 -->
+                    <net>
+                        <value value="12.35"/>
+                        <unit value="ARS"/>
+                    </net>
+                    <!-- Detalles Arancel -->
+                    <detail>
+                        <sequence value="1"/>
+                        <type>
+                            <system value="http://mais.org.ar/fhir/StructureDefinition/TipoArancelCodigo"> </system>
+                            <code value="A"/>
+                            <display value="ANESTESISTA"></display>
+                        </type>
+                        <service>
+                            <system value="http://mais.org.ar/fhir/ValueSet/DiferencialServicio"> </system>
+                            <code value="1"/>
+                            <display value="AMBULATORIO"/>
+                        </service>
+                        <quantity>
+                            <value value="1.00"/>
+                        </quantity>
+                        <net>
+                            <value value="12.85"/>
+                            <unit value="ARS"/>
+                        </net>
+                    </detail>
+
+                </item>
+
+            </Claim>  
+    </resource>
+    <request>
+      <method value="POST"/>
+      <url value="claim"/>
+    </request>
+  </entry>
+
+</Bundle>

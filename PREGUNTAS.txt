@@ -1,0 +1,35 @@
+CREDITO
+-------------------------------------------------
+1 - Los códigos de diagnósticos se van a manejar de igual forma que los OIDs o son propios del prestador/financiador?
+
+
+DEBITO
+-------------------------------------------------
+1 - Que diferencia existe entre los errores a mostrar en:
+	A - <entry>:<resource>:<ClaimResponse>:<outcome>,<disposition>
+	B - <entry>:<resource>:<ClaimResponse>:<error>:<code>
+
+	
+2 - De donde se sacan los códigos para los valores de:
+	<entry>:<resource>:<ClaimResponse>:<paymentAdjustmentReason>
+	
+4 - En la respuesta del débito, a la hora de detallar el ITEM, se toma el esquema XML del ejemplo del dropbox o el que retorna HAPI?
+
+
+
+PROPUESTAS
+-------------------------------------------------
+1 - Definir el XML Base con el cual trabajar para:
+	A - Request y response de facturacion.
+	B - Consulta de débitos, si es por medio de rest o se envía un XML con los filtros
+	C - Response de débitos en caso de no poseer débitos en una consulta.
+	
+2 - Tratar de unificar toda la codificación de aquellos datos que no sean críticos o privados del afiliado.
+	Ejemplo: 
+		Prestaciones
+		Diagnósticos
+		Profesiones
+		
+3 - Los planes de cobertura no convendría convertirlos a OIDs?
+
+4 - Definir cuales van a ser las validaciones mínimas y obligatorias del request de Facturación y si estas van a ser incluidas en los XSD y SCH.
