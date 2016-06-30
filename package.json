@@ -1,1 +1,19 @@
-{}
+{
+	"name": "SwissMedicalMAIS", 
+	"version": "0.0.1",
+	"description": "Paquete de servicio de Swiss Medical para el proyecto MAIS",
+	"main": "index.js",
+	"dependencies": {
+		"express"				: "4.13.4",
+		"socket.io"				: ">= 0.2.3",
+		"app-root-path"			: "1.0.0",
+		"dateformat"			: "1.0.12",
+		"guid"					: "0.0.12",
+		"xsd-schema-validator"	: "0.3.1",
+		"accepts" 				: "1.3.3",
+		"xml2js"				: "0.4.16",
+		"eval"					: "0.1.1",
+		"js2xmlparser"			: "1.0.0"		
+	},
+	"author": "Eric Faijoó / Swiss Medical Group"
+}
