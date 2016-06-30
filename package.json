@@ -1,13 +1,49 @@
 {
-  "name" : "SwissMedicalTestMAIS",
-  "description" : "Paquete de servicio de Swiss Medical para el proyecto MAIS",
-  "homepage" : "https://github.com/erhickf/NodeJS_SM_Test/",
-  "keywords" : ["util", "functional", "server", "client", "browser"],
-  "author" : "Eric Faijoó <ericleonel.faijoo@swissmedical.com.ar>/ Swiss Medical Group",
-  "contributors" : [],
-  "dependencies" : [],
-  "repository" : {"type": "git", "url": "https://github.com/erhickf/NodeJS_SM_Test.git"},
-  "main" : "index.js",
-  "version" : "1.0.0"
+	"name" : "SwissMedicalTestMAIS",    
+    "version": "0.1.0",
+	"description": "Paquete de servicio de Swiss Medical para el proyecto MAIS",    
+    "author": {
+        "name": "Eric Faijoo",
+        "email": "erhickf@gmail.com",
+        "web": ""
+    },
+    "contributors": [
+        {
+            "name": "",
+            "email": "",
+            "url": ""
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/erhickf/NodeJS_SM_Test.git"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/gorillamania/package.json-validator/blob/master/LICENSE"
+    }],
+    "keywords": ["eric"],
+    "homepage": "http://package-json-validator.com",
+    "bugs": {
+        "url" : "http://package-json-validator.com/issues",
+        "email" : "erhickf@gmail.com"
+    },
+    "dependencies": {
+		"express"				: "4.13.4",
+		"socket.io"				: ">= 0.2.3",
+		"app-root-path"			: "1.0.0",
+		"dateformat"			: "1.0.12",
+		"guid"					: "0.0.12",
+		"xsd-schema-validator"	: "0.3.1",
+		"accepts" 				: "1.3.3",
+		"xml2js"				: "0.4.16",
+		"eval"					: "0.1.1",
+		"js2xmlparser"			: "1.0.0"
+    },
+    "devDependencies": {
+    },
+    "scripts": {
+        "test": ""
+    },
+    "main": "index.js"
 }
-
