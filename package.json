@@ -43,7 +43,7 @@
     "devDependencies": {
     },
     "scripts": {
-        "test": ""
+        "start": "node index.js"
     },
     "main": "index.js"
 }
