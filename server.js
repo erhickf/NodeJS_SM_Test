@@ -19,9 +19,19 @@ function iniciarServer(route, handle){
       route(handle, pathname, request, response, postData);
     });
   }
-
 			
-  http.createServer(serverRequest).listen(8090);
+  //http.createServer(serverRequest).listen(8090);
+
+  // esto de acá abajo es para usar openshift
+	var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
+	 
+	http.createServer(serverRequest).listen(server_port, server_ip_address, function () {
+	  console.log( "Listening on " + server_ip_address + ", server_port " + port )
+	});
+
+
+
   
   maisCD.instanciarValoresMock();  
   console.log("");
