@@ -1,4 +1,4 @@
-var maisCD = require("./MAIS/Config_Declaration.js");
+//var maisCD = require("./MAIS/Config_Declaration.js");
 var http = require('http');
 var url = require("url");
 
@@ -34,7 +34,7 @@ function iniciarServer(route, handle){
 
 
   
-  maisCD.instanciarValoresMock();  
+  //maisCD.instanciarValoresMock();  
   console.log("");
   console.log("---- SERVIDOR INICIADO EN EL PUERTO -- " + server_port.toString());
 }
