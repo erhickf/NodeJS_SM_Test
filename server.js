@@ -23,7 +23,8 @@ function iniciarServer(route, handle){
   //http.createServer(serverRequest).listen(8090);
 
   // esto de acá abajo es para usar openshift
-	var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+	
+	var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8090;
 	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 	 
 	http.createServer(serverRequest).listen(server_port, server_ip_address, function () {
@@ -35,7 +36,7 @@ function iniciarServer(route, handle){
   
   maisCD.instanciarValoresMock();  
   console.log("");
-  console.log("---- SERVIDOR INICIADO EN EL PUERTO 8090 --");
+  console.log("---- SERVIDOR INICIADO EN EL PUERTO -- " + server_port.toString());
 }
 
 // ------------------------------------------------------------
