@@ -1,10 +1,10 @@
-//var maisCD = require("./MAIS/Config_Declaration.js");
+//--- var maisCD = require("./MAIS/Config_Declaration.js");
 var http = require('http');
 var url = require("url");
 
 function iniciarServer(route, handle){
   console.log("Iniciando Server");
-	
+
   function serverRequest(request, response){
     var pathname = url.parse(request.url).pathname;
     var postData = "";	
@@ -28,7 +28,9 @@ function iniciarServer(route, handle){
 	var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 	 
 	http.createServer(serverRequest).listen(server_port, server_ip_address, function () {
-	  console.log( "Listening on " + server_ip_address + ", server_port " + port )
+	  console.log( "server_port = " + server_port );
+	  console.log( "server_ip_address = " + server_ip_address );
+	  console.log( "Listening on " + server_ip_address + ", server_port " + server_port );
 	});
 
 
