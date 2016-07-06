@@ -1,6 +1,6 @@
 var server = require("./server.js");
 var router = require("./router.js");
-/*var handlers = require("./handlers.js");
+//var handlers = require("./handlers.js");
 
 // Aquellas secciones de la url a capturar cuyo valor puede ser dinámico y corresponde a un valor del servicio rest, 
 // deberá tener puesto un @ en vez la ruta.  
